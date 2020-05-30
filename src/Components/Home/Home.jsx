@@ -16,7 +16,6 @@ const fetchError = error => {
 
 const Home = (state) => {
     console.log(state);
-    const { dataReducer } = state;
 
     useEffect(() => {
         fetchData();
