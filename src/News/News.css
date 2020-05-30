@@ -40,3 +40,10 @@ a {
     font-size: 10.6667px;
     float: left;
 }
+.search-dropdowns {
+    display: flex;
+}
+.search-text {
+    margin-top: 5px;
+    margin-right: 5px;
+}
