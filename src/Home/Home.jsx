@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import News from '../News/News';
 
-function Home() {
+const fetchData = () => {
+    fetch("http://hn.algolia.com/api/v1/search?tags=story").then(fetchSuccess).catch(fetchError);
+}
+
+const fetchSuccess = response => {
+    console.log(response.json());
+}
+
+const fetchError = error => {
+    console.log(error);
+}
+
+const Home = () => {
+    useEffect(() => {
+        fetchData();
+    }, [])
+
     return (
         <div className="container">
             <div className="row">
@@ -10,7 +26,6 @@ function Home() {
                 <News />
             </div>
         </div>
-
     );
 }
 
