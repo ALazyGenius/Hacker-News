@@ -1,7 +1,7 @@
 import React from "react";
 import "./News.css";
 
-const News = () => {
+const News = (state) => {
   return (
     <div className="news-container">
       <div className="card">
