@@ -1,0 +1,42 @@
+a {
+    color: #000 !important;
+}
+
+.news-container {
+  width: 100%;
+}
+
+.story_container {
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.story_data {
+    margin: 4px 0;
+}
+
+.story_title {
+    width: 100%;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.story_link {
+    margin-left: 4px;
+}
+
+.story_title .story_link {
+    color: #828282;
+    font-size: 13px;
+    word-break: break-all;
+}
+
+.story_meta, .story_meta a {
+    color: #696969;
+}
+
+.story_meta {
+    font-size: 10.6667px;
+    float: left;
+}
