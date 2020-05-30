@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import News from '../News/News';
-import NewsContainer from '../Containers/NewsContainer';
 
 const fetchData = () => {
     fetch("http://hn.algolia.com/api/v1/search?tags=story").then(fetchSuccess).catch(fetchError);
@@ -16,7 +15,6 @@ const fetchError = error => {
 }
 
 const Home = (state) => {
-
     console.log(state);
     const { dataReducer } = state;
 
@@ -28,7 +26,7 @@ const Home = (state) => {
         <div className="container">
             <div className="row">
                 <Header />
-                <NewsContainer />
+                <News />
             </div>
         </div>
     );

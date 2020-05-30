@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import HackerNewsLogo from '../assests/logo-hn-search-a822432b.jpg';
+import HackerNewsLogo from '../../assests/logo-hn-search-a822432b.jpg';
 
 const Header = () => {
 
