@@ -1,0 +1,10 @@
+{
+    "api": {
+        "baseURL": "http://hn.algolia.com/api/v1",
+        "currentType": "search",
+        "currentQuery": "tags",
+        "data": {
+            
+        }
+    }
+}
