@@ -36,6 +36,13 @@
     font-size: 10.6667px;
     float: left;
 }
+.search-dropdowns {
+    display: flex;
+}
+.search-text {
+    margin-top: 5px;
+    margin-right: 5px;
+}
 
 .story_separator {
     margin: 0 5px;

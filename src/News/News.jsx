@@ -1,11 +1,51 @@
 import React from "react";
+import { Dropdown } from "react-bootstrap";
 import "./News.css";
 
 const News = (state) => {
   return (
     <div className="news-container">
       <div className="card">
-        <div className="card-header">Featured</div>
+        <div className="card-header">
+          <div className="search-dropdowns">
+            <h5 className="search-text">Search</h5>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Stories
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <h5 className="search-text">by</h5>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Popularity
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <h5 className="search-text">for</h5>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                All time
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+        </div>
         <div className="card-body">
           <div className="story_container">
             <div className="story_data">
