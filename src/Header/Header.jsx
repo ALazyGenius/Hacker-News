@@ -11,10 +11,10 @@ const Header = () => {
                 <img className="hacker-news-logo" src={HackerNewsLogo} alt="Hacker-search-logo" />
             </div>
             <h5>Hacker News</h5>
-            <div class="input-group md-form form-sm form-1 pl-0 search-bar">
-                <div class="input-group-prepend">
+            <div className="input-group md-form form-sm form-1 pl-0 search-bar">
+                <div className="input-group-prepend">
                 </div>
-                <input class="form-control my-0 py-1" type="text" placeholder="Search stories by title, url or author" aria-label="Search" />
+                <input className="form-control my-0 py-1" type="text" placeholder="Search stories by title, url or author" aria-label="Search" />
             </div>
             <div className="header-settings">
                 <span className="settings">Settings</span>
