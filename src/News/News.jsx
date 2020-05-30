@@ -5,7 +5,7 @@ const News = () => {
   return (
     <div className="news-container">
       <div className="card">
-        <div class="card-header">Featured</div>
+        <div className="card-header">Featured</div>
         <div className="card-body">
           <div className="story_container">
             <div className="story_data">
