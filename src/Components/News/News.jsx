@@ -10,7 +10,7 @@ const News = (state) => {
           <div className="search-dropdowns">
             <h5 className="search-text">Search</h5>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="link" id="dropdown-basic">
                 Stories
               </Dropdown.Toggle>
 
@@ -22,7 +22,7 @@ const News = (state) => {
             </Dropdown>
             <h5 className="search-text">by</h5>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="link" id="dropdown-basic">
                 Popularity
               </Dropdown.Toggle>
 
@@ -34,7 +34,7 @@ const News = (state) => {
             </Dropdown>
             <h5 className="search-text">for</h5>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="link" id="dropdown-basic">
                 All time
               </Dropdown.Toggle>
 

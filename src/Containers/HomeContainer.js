@@ -3,7 +3,7 @@ import Home from "../Components/Home/Home";
 
 const mapStateToProps = (state) => {
     console.log(state);
-    return state
+    return state;
 };
 
 export default connect(mapStateToProps)(Home);
