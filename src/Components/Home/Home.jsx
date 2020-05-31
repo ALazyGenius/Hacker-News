@@ -14,7 +14,9 @@ const fetchError = error => {
     console.log(error);
 }
 
-const Home = () => {
+const Home = (state) => {
+    console.log(state);
+
     useEffect(() => {
         fetchData();
     }, [])
