@@ -1,30 +1,13 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
+import ReactPaginate from "react-paginate";
 import "./News.css";
+import createdDateCal from "../../Helpers/helpers";
 
 const News = (newsData) => {
-  console.log("*******", newsData);
-
-  const createdDateCal = (date) => {
-    const date1 = new Date();
-    const date2 = new Date(date);
-    var diff = Math.floor(date1.getTime() - date2.getTime());
-    var day = 1000 * 60 * 60 * 24;
-
-    var days = Math.floor(diff / day);
-    var months = Math.floor(days / 31);
-    var years = Math.floor(months / 12);
-
-    if (years > 0) {
-      return years + ' years';
-    }
-    else if (years <= 0 && months > 0) {
-      return months + ' months';
-    }
-    else if (years <= 0 && months <= 0) {
-      return days + ' days';
-    }
-  }
+  const handlePageClick = (event) => {
+    // const pageSelected = event.selected;
+  };
 
   return (
     <div className="news-container">
@@ -70,52 +53,71 @@ const News = (newsData) => {
           </div>
         </div>
         <div className="card-body">
-          {newsData && newsData.hits && newsData.hits.map(items => {
-            return (
-              <div className="story_container">
-                <div className="story_data">
-                  <div className="story_title">
-                    <a href={items.url}>
-                      <span>{items.title}</span>
-                    </a>
-                    <a
-                      href="{items.url}"
-                      target="_blank"
-                      className="story_link"
-                    >
-                      ({items.url})
-                </a>
-                  </div>
-                  <div className="story_meta">
-                    <span>
-                      <a href="https://news.ycombinator.com/item?id=16582136">
-                        {items.points} points
-                  </a>
-                    </span>
-                ,<span className="story_separator">|</span>
-                    <span>
-                      <a href="https://news.ycombinator.com/user?id=Cogito">
-                        <span>{items.author}</span>
+          {newsData &&
+            newsData.hits &&
+            newsData.hits.map((items) => {
+              return (
+                <div className="story_container" key={items.objectID}>
+                  <div className="story_data">
+                    <div className="story_title">
+                      <a href={items.url}>
+                        <span>{items.title}</span>
                       </a>
-                    </span>
-                    <span className="story_separator">|</span>
-                    <span>
-                      <a href="https://news.ycombinator.com/item?id=16582136">
-                        {createdDateCal(items.created_at)} ago
-                  </a>
-                    </span>
-                    <span className="story_separator">|</span>
-                    <span>
-                      <a href="https://news.ycombinator.com/item?id=16582136">
-                        {items.num_comments} comments
-                  </a>
-                    </span>
+                      <a
+                        href="{items.url}"
+                        target="_blank"
+                        className="story_link"
+                      >
+                        ({items.url})
+                      </a>
+                    </div>
+                    <div className="story_meta">
+                      <span>
+                        <a href="https://news.ycombinator.com/item?id=16582136">
+                          {items.points} points
+                        </a>
+                      </span>
+                      ,<span className="story_separator">|</span>
+                      <span>
+                        <a href="https://news.ycombinator.com/user?id=Cogito">
+                          <span>{items.author}</span>
+                        </a>
+                      </span>
+                      <span className="story_separator">|</span>
+                      <span>
+                        <a href="https://news.ycombinator.com/item?id=16582136">
+                          {createdDateCal(items.created_at)} ago
+                        </a>
+                      </span>
+                      <span className="story_separator">|</span>
+                      <span>
+                        <a href="https://news.ycombinator.com/item?id=16582136">
+                          {items.num_comments} comments
+                        </a>
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>)
-          })}
+              );
+            })}
         </div>
-        <div className="card-footer text-muted">Pagination</div>
+        {newsData && newsData.hits && (
+          <div className="card-footer text-muted">
+            <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={newsData.nbPages}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={3}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
