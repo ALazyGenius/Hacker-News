@@ -6,7 +6,7 @@ const dataReducer = (state = defaultState, action) => {
         return {
             ...state,
             api: {
-                ...state.api, data: action.payload.data
+                ...state.api, data: action.payload.data,
             }
         }
     }
