@@ -6,9 +6,24 @@ const dataReducer = (state = defaultState, action) => {
         return {
             ...state,
             api: {
-                ...state.api, data: action.payload.data,
+                ...state.api, data: action.payload.data, result: action.payload.data.hits,
             }
         }
+    }
+
+    if (action.type === CONSTANTS.SEARCH_DATA) {
+        console.log("DATAAAAAAAAA", action.payload.data)
+        return {
+            ...state,
+            api: {
+                ...state.api,
+                data: {
+                    ...state.api.data,
+                    hits: action.payload.data
+                }
+            }
+        }
+
     }
     return state;
 }

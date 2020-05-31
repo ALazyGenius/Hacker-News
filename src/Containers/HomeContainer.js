@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 import Home from "../Components/Home/Home";
 
 const mapStateToProps = (state) => {
-    console.log(state);
-    return state;
+    return state.dataReducer;
 };
 
 export default connect(mapStateToProps)(Home);

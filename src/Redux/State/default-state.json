@@ -1,11 +1,10 @@
 {
     "api": {
         "baseURL": "http://hn.algolia.com/api/v1/",
-            "currentType": "search",
-                "currentQuery": "tags",
-                    "typeOfQuery": "story",
-                        "data": {
-
-        }
+        "currentType": "search",
+        "currentQuery": "tags",
+        "typeOfQuery": "story",
+        "data": {},
+        "result": []
     }
 }

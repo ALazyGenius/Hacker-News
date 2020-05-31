@@ -2,8 +2,14 @@ import React from 'react';
 import './Header.css';
 import HackerNewsLogo from '../../assests/logo-hn-search-a822432b.jpg';
 
-const Header = () => {
+const Header = (props) => {
 
+    console.log("PROPS", props);
+
+    const searchFunction = (event) => {
+        props.newsFilterOnChange(event.target.value);
+        console.log(event.target.value);
+    }
 
     return (
         <div className="hacker-news-header">
@@ -14,7 +20,7 @@ const Header = () => {
             <div className="input-group md-form form-sm form-1 pl-0 search-bar">
                 <div className="input-group-prepend">
                 </div>
-                <input className="form-control my-0 py-1" type="text" placeholder="Search stories by title, url or author" aria-label="Search" />
+                <input className="form-control my-0 py-1" type="text" placeholder="Search stories by title, url or author" aria-label="Search" onChange={searchFunction} />
             </div>
             <div className="header-settings">
                 <span className="settings">Settings</span>

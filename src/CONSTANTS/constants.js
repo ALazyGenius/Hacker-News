@@ -6,7 +6,8 @@ const CONSTANT = {
     DISPLAY_DATA: "DISPLAY_DATA",
     YEARS: " years",
     MONTHS: " months",
-    DAYS: " days"
+    DAYS: " days",
+    SEARCH_DATA: "SEARCH_DATA"
 };
 
 export default CONSTANT;
