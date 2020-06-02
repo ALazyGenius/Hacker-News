@@ -4,6 +4,7 @@
         "currentType": "search",
         "currentQuery": "tags",
         "typeOfQuery": "story",
+        "page": 0,
         "data": {},
         "result": []
     }

@@ -2,11 +2,20 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import "./News.css";
-import createdDateCal from "../../Helpers/helpers";
+import helper from "../../Helpers/helpers";
 
 const News = (newsData) => {
   const handlePageClick = (event) => {
-    // const pageSelected = event.selected;
+    const pageSelected = event.selected || 0;
+
+    newsData.dispatch({
+      type: "PAGE_UPDATE",
+      payload: {
+        pageNumber: pageSelected
+      }
+    })
+
+    console.log(pageSelected);
   };
 
   return (
@@ -21,9 +30,9 @@ const News = (newsData) => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item href="#/action-1">All</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Stories</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Comments</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             <h5 className="search-text">by</h5>
@@ -33,9 +42,8 @@ const News = (newsData) => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item href="#/action-1">Popularity</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Date</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             <h5 className="search-text">for</h5>
@@ -45,9 +53,11 @@ const News = (newsData) => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item href="#/action-1">All time</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Last 24h</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Past week</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Past month</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Last year</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -86,7 +96,7 @@ const News = (newsData) => {
                       <span className="story_separator">|</span>
                       <span>
                         <a href="https://news.ycombinator.com/item?id=16582136">
-                          {createdDateCal(items.created_at)} ago
+                          {helper.createdDateCal(items.created_at)} ago
                         </a>
                       </span>
                       <span className="story_separator">|</span>

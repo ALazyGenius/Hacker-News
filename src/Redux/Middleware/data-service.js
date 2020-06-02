@@ -1,36 +1,36 @@
 import CONSTANTS from "../../CONSTANTS/constants";
+import helper from '../../Helpers/helpers';
+
 
 const dataService = (store) => (next) => (action) => {
-  console.log(store);
-  const fetchData = () => {
-    fetch("http://hn.algolia.com/api/v1/search?tags=story&page=0")
-      .then(fetchSuccess)
-      .then(processResponse)
-      .catch(fetchError);
-  };
 
-  const fetchSuccess = (response) => response.json();
+    const fetchData = (url) => {
+        fetch(url)
+            .then(fetchSuccess)
+            .then(processResponse)
+            .catch(fetchError);
 
-  const processResponse = (response) => {
-    console.log(response);
-    next({
-      type: CONSTANTS.DISPLAY_DATA,
-      payload: { data: response },
-    });
-  };
+    };
 
-  const fetchError = (error) => {
-    console.log(error);
-  };
-  next(action);
+    const fetchSuccess = (response) => response.json();
 
-  switch (action.type) {
-    case CONSTANTS.GET_DATA:
-      fetchData();
-      break;
-    default:
-      break;
-  }
+    const processResponse = (response) => {
+        next({
+            type: CONSTANTS.DISPLAY_DATA,
+            payload: { data: response },
+        });
+    };
+
+    const fetchError = (error) => {
+        console.log(error);
+    };
+    next(action);
+
+
+    const url = helper.createUrl(store.getState());
+    if (action.type === CONSTANTS.GET_DATA || CONSTANTS.PAGE_UPDATE) {
+        fetchData(url);
+    }
 };
 
 export default dataService;

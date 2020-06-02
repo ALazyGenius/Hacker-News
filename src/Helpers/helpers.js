@@ -24,4 +24,11 @@ const createdDateCal = (date) => {
   }
 };
 
-export default createdDateCal;
+const createUrl = (state) => {
+  const urlFormation = state.dataReducer.api;
+  const url = `${urlFormation.baseURL}/${urlFormation.currentType}?${urlFormation.currentQuery}=${urlFormation.typeOfQuery}&page=${urlFormation.page}`
+  // const url = "http://hn.algolia.com/api/v1/search?tags=story&page=0";
+  return url;
+}
+
+export default { createdDateCal, createUrl };

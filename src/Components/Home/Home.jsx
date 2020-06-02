@@ -4,7 +4,6 @@ import NewsContainer from '../../Containers/NewsContainer';
 import CONSTANTS from '../../CONSTANTS/constants';
 
 const Home = (newsData) => {
-    console.log(newsData);
 
     let searchDataArray = [];
 
@@ -15,7 +14,6 @@ const Home = (newsData) => {
                     return item;
                 }
             });
-            console.log(searchDataArray);
             newsData.dispatch({
                 type: CONSTANTS.SEARCH_DATA,
                 payload: {
