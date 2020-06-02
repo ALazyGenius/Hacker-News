@@ -22,6 +22,15 @@ const dataReducer = (state = defaultState, action) => {
             }
         };
     }
+    if (action.type === CONSTANTS.PAGE_UPDATE) {
+        return {
+            ...state,
+            api: {
+                ...state.api,
+                page: action.payload.pageNumber
+            }
+        }
+    }
     return state;
 }
 
