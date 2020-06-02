@@ -3,12 +3,8 @@ import './Header.css';
 import HackerNewsLogo from '../../assests/logo-hn-search-a822432b.jpg';
 
 const Header = (props) => {
-
-    console.log("PROPS", props);
-
     const searchFunction = (event) => {
         props.newsFilterOnChange(event.target.value);
-        console.log(event.target.value);
     }
 
     return (

@@ -10,9 +10,7 @@ const dataReducer = (state = defaultState, action) => {
             }
         }
     }
-
     if (action.type === CONSTANTS.SEARCH_DATA) {
-        console.log("DATAAAAAAAAA", action.payload.data)
         return {
             ...state,
             api: {
@@ -22,8 +20,7 @@ const dataReducer = (state = defaultState, action) => {
                     hits: action.payload.data
                 }
             }
-        }
-
+        };
     }
     return state;
 }
